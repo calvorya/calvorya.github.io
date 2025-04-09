@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="src/ico.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/ico.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/ico.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/ico.png">
+    <meta name="theme-color" content="#121212">
+
+    <!-- Primary Meta Tags -->
+    <title>System Down Team - Professional Web, Mobile & Desktop Development</title>
+    <meta name="title" content="System Down Team - Professional Web, Mobile & Desktop Development">
+    <meta name="description"
+        content="Expert team specializing in web development, mobile apps, desktop applications, cybersecurity, and AI solutions. We build amazing projects with cutting-edge technologies.">
+    <meta name="keywords"
+        content="web development, mobile apps, desktop applications, Flutter, React, Vue.js, Laravel, PHP, cybersecurity, AI, ML">
+    <meta name="author" content="System Down Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://systemdown.team/">
+    <meta property="og:title" content="System Down Team - Professional Web, Mobile & Desktop Development">
+    <meta property="og:description"
+        content="Expert team specializing in web development, mobile apps, desktop applications, cybersecurity, and AI solutions. We build amazing projects with cutting-edge technologies.">
+    <meta property="og:image" content="./src/images/og-image.jpg">
+    <meta property="og:site_name" content="System Down Team">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://systemdown.team/">
+    <meta property="twitter:title" content="System Down Team - Professional Web, Mobile & Desktop Development">
+    <meta property="twitter:description"
+        content="Expert team specializing in web development, mobile apps, desktop applications, cybersecurity, and AI solutions. We build amazing projects with cutting-edge technologies.">
+    <meta property="twitter:image" content="./src/images/og-image.jpg">
+    <meta name="twitter:site" content="@systemdownteam">
+    <meta name="twitter:creator" content="@systemdownteam">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="./src/css/index.css" as="style">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" defer></script>
+    <script src="./src/js/background.js"></script>
+    <script src="./src/js/animations.js" defer></script>
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "System Down Team",
+        "description": "Expert team specializing in web development, mobile apps, desktop applications, cybersecurity, and AI solutions.",
+        "url": "https://systemdown.team",
+        "logo": "https://systemdown.team/src/images/logo.png",
+        "sameAs": [
+            "https://github.com/SystemDownTM",
+            "https://blogfreedom.ir"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "systemdown@duck.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "category": "Web Development",
+            "description": "Professional web development services using modern technologies"
+        }
+    }
+    </script>
+
+    <!-- Add canonical URL -->
+    <link rel="canonical" href="https://systemdowntm.github.io/">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="loading-text">System Down Team</div>
+        </div>
+    </div>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-laptop-code"></i> System Down Team</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <canvas id="hero-background"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to System Down Team</h1>
+            <p class="hero-subtitle">We build amazing projects with cutting-edge technologies</p>
+            <a href="#projects" class="btn btn-custom mt-4">Explore Our Work</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section section-transition">
+        <div class="container py-5">
+            <div class="section-header text-center">
+                <h2>Our Services</h2>
+                <p class="section-subtitle">We provide cutting-edge solutions with the latest technologies</p>
+            </div>
+            <div class="row g-4">
+                <!-- Web Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                            <div class="icon-background"></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Web Development</h3>
+                            <p>Modern web applications using React, Vue.js, and Laravel with responsive design and optimal performance.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Single Page Applications</li>
+                                <li><i class="fas fa-check"></i> Progressive Web Apps</li>
+                                <li><i class="fas fa-check"></i> REST API Integration</li>
+                            </ul>
+                            <a href="#contact" class="service-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="icon-background"></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Mobile Development</h3>
+                            <p>Cross-platform mobile applications with Flutter, delivering native performance and beautiful UI/UX.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> iOS & Android Apps</li>
+                                <li><i class="fas fa-check"></i> Custom Animations</li>
+                                <li><i class="fas fa-check"></i> Support</li>
+                            </ul>
+                            <a href="#contact" class="service-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Desktop Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                            <div class="icon-background"></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Desktop Apps</h3>
+                            <p>Native and cross-platform desktop applications with modern frameworks and optimal performance.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Windows & macOS Apps</li>
+                                <li><i class="fas fa-check"></i> System Integration</li>
+                                <li><i class="fas fa-check"></i> Custom Solutions</li>
+                            </ul>
+                            <a href="#contact" class="service-link">
+                                Learn More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="services-background">
+            <div class="services-shape shape-1"></div>
+            <div class="services-shape shape-2"></div>
+            <div class="services-shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container py-5">
+            <div class="section-header text-center">
+                <h2>Featured Projects</h2>
+                <p class="section-subtitle">Explore our latest and most innovative projects</p>
+            </div>
+            <div class="row g-4">
+                <!-- Freedom Blog -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./src/projects/fb-dashboard.png" alt="Freedom Blog Dashboard">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>PHP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Freedom Blog</h3>
+                            <p class="project-description">A modern blogging platform with advanced features and beautiful design.</p>
+                            <div class="project-links">
+                                <a href="https://blogfreedom.ir" class="btn btn-custom" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/SystemDownTM/Freedom-Blog" class="btn btn-outline" target="_blank">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fdecode -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./src/projects/fdecode-web.png" alt="Fdecode Web App">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Fdecode</h3>
+                            <p class="project-description">A powerful web application for decoding and analyzing various formats.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/SystemDownTM/Fdecode" class="btn btn-custom" target="_blank">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                                <a href="#" class="btn btn-outline" target="_blank">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sleeping Shadows -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/SystemDownTM/Sleeping-Shadows/main/image1.jpg" alt="Sleeping Shadows Game">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>Unity</span>
+                                    <span>C#</span>
+                                    <span>2D</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sleeping Shadows</h3>
+                            <p class="project-description">An immersive 2D game with unique mechanics and stunning visuals.</p>
+                            <div class="project-links">
+                                <a href="https://systemdowntm.github.io/Sleeping-Shadows/" class="btn btn-custom" target="_blank">
+                                    <i class="fas fa-gamepad"></i> Play Now
+                                </a>
+                                <a href="https://github.com/SystemDownTM/Sleeping-Shadows-Game/" class="btn btn-outline" target="_blank">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-transition">
+        <div class="container py-5">
+            <div class="section-header text-center">
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form id="contact-form" action="https://formsubmit.co/systemdown@duck.com" method="POST">
+                            <div class="mb-4">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add notification container -->
+    <div id="notification-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>System Down Team</h3>
+                    </div>
+                    <p class="footer-description">Building the future of technology with innovative solutions and cutting-edge development.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/SystemDownTM" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://blogfreedom.ir" target="_blank" class="social-link">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                        </a>
+                        <a href="mailto:systemdown@duck.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li>Web Development</li>
+                        <li>Mobile Apps</li>
+                        <li>Desktop Applications</li>
+                        <li>AI Solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>systemdown@duck.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tehran, Iran</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 System Down Team. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./src/js/script.js"></script>
+</body>
+
+</html>
