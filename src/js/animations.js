@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.querySelector('.loading');
     const progressBar = document.querySelector('.progress-bar');
     const loadingContent = document.querySelector('.loading-content');
-    
+
     if (loading && progressBar && loadingContent) {
         // Create particles container
         const particlesContainer = document.createElement('div');
@@ -82,9 +82,9 @@ document.body.appendChild(scrollProgressBar);
 const handleScroll = debounce(() => {
     // Navbar effect
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.classList.remove('scrolled');
+        navbar.style.boxShadow = 'none';
     }
 
     // Scroll progress bar
@@ -96,7 +96,7 @@ const handleScroll = debounce(() => {
 
 window.addEventListener('scroll', handleScroll);
 
-// Intersection Observer for Scroll Animations
+// Intersection Observer for fade-in animations
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -106,24 +106,19 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Add staggered animation to children
-            entry.target.querySelectorAll('.card').forEach((child, index) => {
-                child.style.transitionDelay = `${index * 0.1}s`;
-            });
+            entry.target.classList.add('fade-in');
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe sections with a delay to improve initial load
-setTimeout(() => {
-    document.querySelectorAll('.section-transition').forEach(section => {
-        observer.observe(section);
-    });
-}, 100);
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+    section.classList.add('fade-out');
+    observer.observe(section);
+});
 
-// Smooth Scroll for Navigation Links
+// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -136,6 +131,107 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Dark mode support
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+if (prefersDarkScheme.matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+} else {
+    document.documentElement.setAttribute('data-theme', 'light');
+}
+
+prefersDarkScheme.addListener((e) => {
+    if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+});
+
+// Service card hover effect
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// Form submission handling
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('https://formsubmit.co/systemdown@duck.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                showNotification('Message sent successfully!', 'success');
+                contactForm.reset();
+            } else {
+                showNotification('Failed to send message. Please try again.', 'error');
+            }
+        } catch (error) {
+            showNotification('An error occurred. Please try again later.', 'error');
+        }
+    });
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Enhanced Floating Animation
+document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('floating');
+    card.style.animationDelay = `${Math.random() * 2}s`;
+});
+
+// Mobile Menu Toggle
+const navbarToggler = document.querySelector('.navbar-toggler');
+const navbarCollapse = document.querySelector('.navbar-collapse');
+
+if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener('click', () => {
+        navbarCollapse.classList.toggle('show');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+            navbarCollapse.classList.remove('show');
+        }
+    });
+}
 
 // Typing Animation for Hero Text
 const heroTitle = document.querySelector('.hero-title');
@@ -160,18 +256,18 @@ const handleCardHover = debounce((e) => {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         const rect = card.getBoundingClientRect();
-        
+
         // Only apply effect if card is in viewport
         if (rect.top < window.innerHeight && rect.bottom > 0) {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 30;
             const rotateY = (centerX - x) / 30;
-            
+
             card.style.transform = `
                 perspective(1000px)
                 rotateX(${rotateX}deg)
@@ -189,104 +285,5 @@ document.addEventListener('mousemove', handleCardHover);
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-    });
-});
-
-// Mobile Menu Toggle
-const navbarToggler = document.querySelector('.navbar-toggler');
-const navbarCollapse = document.querySelector('.navbar-collapse');
-
-if (navbarToggler && navbarCollapse) {
-    navbarToggler.addEventListener('click', () => {
-        navbarCollapse.classList.toggle('show');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
-            navbarCollapse.classList.remove('show');
-        }
-    });
-}
-
-// Contact Form Handling
-const contactForm = document.querySelector('#contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        
-        try {
-            const formData = new FormData(contactForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message')
-            };
-            
-            const response = await fetch('https://formspree.io/f/systemdown@duck.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-            
-            if (response.ok) {
-                showNotification('Message sent successfully!', 'success');
-                contactForm.reset();
-            } else {
-                throw new Error('Failed to send message');
-            }
-        } catch (error) {
-            showNotification('Failed to send message. Please try again.', 'error');
-        } finally {
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Send Message';
-        }
-    });
-}
-
-// Notification System
-function showNotification(message, type = 'success') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    requestAnimationFrame(() => {
-        notification.classList.add('show');
-    });
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Enhanced Floating Animation
-document.querySelectorAll('.card').forEach(card => {
-    card.classList.add('floating');
-    card.style.animationDelay = `${Math.random() * 2}s`;
-});
-
-// Service Cards Mouse Effect
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
