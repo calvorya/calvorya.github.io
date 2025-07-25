@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         document.querySelector('.loading').classList.add('hidden');
     }, 1000);
-    var toggler = document.querySelector('.navbar-toggler');
+    var toggler = document.querySelector('#navbar-toggler');
     var mobileMenuPanel = document.getElementById('mobileMenuPanel');
     var closeBtn = document.getElementById('closeMobileMenu');
 
